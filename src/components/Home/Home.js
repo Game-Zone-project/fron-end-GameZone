@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import GameList from '../GameList/GameList';
 
 export default function Home(){
     const [games, setGames] = useState([]);
