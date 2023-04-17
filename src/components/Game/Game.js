@@ -14,20 +14,7 @@ import {useState} from 'react';
 
     return(
         <>
-    <div class="div1">
-    <Card  style={{ width: '22rem' }}>
-        <Card.Img variant="top" src={props.data.thumbnail} />
-          <Card.Body class="backGrountext">
-            <Card.Title class="titleCard">{props.data.title}</Card.Title>
-            <Card.Text>
-            </Card.Text>
-            <div class="homeButton">
-            <Button variant="dark" onClick={handleShow}>Show Details</Button>
-            </div>
-          </Card.Body>
-    </Card>
-    <ModelGame show={show} handleClose={handleClose} gameData={props.data} />
-    </div>
+
         </>
     )
 }
