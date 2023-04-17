@@ -105,6 +105,7 @@ export default function ModelGame(props) {
                         </Row>
                     </Form>
                 </Modal.Body>
+
               
             </Modal>
 
