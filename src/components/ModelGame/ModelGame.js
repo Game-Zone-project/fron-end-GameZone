@@ -7,62 +7,67 @@ import './ModelGame.css'
 
 export default function ModelGame(props) {
 
-    async function addToLibraryHandler(e){
-        e.preventDefault();
-        let url=`${process.env.REACT_APP_GAMES_URL}/addGame`
+    async function addToLibraryHandler(e) {
+        e.preventDefault(); 
+        
+        let url = `${process.env.REACT_APP_GAMES_URL}/addGame`;
         //  [title, genre, image, review, rating, release_date, game_URL]
-         console.log(url)
-        let data={
-            title:props.gameData.title, 
-            genre:props.gameData.genre, 
-            image:props.gameData.thumbnail, 
-            // review:props.gameData.review, 
-            // rating:props.gameData.rating, 
-            release_date:props.gameData.release_date,
-            game_URL:props.gameData.game_url
+        console.log(url)
+        let data = {
+            title: props.gameData.title,
+            genre: props.gameData.genre,
+            image: props.gameData.thumbnail,
+            //review: props.gameData.review,
+            //rating: props.gameData.rating,
+            release_date: props.gameData.release_date,
+            game_URL: props.gameData.game_url,
         }
-        console.log("Game is",data)
-        const response = await fetch(url,{
-            method:"POST", 
+       console.log(data)
+        const response = await fetch(url, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-
         })
-        const recivedData = await response.json();
-        console.log(55555,recivedData)
-       
+        console.log("after")
+        if (response.status === 201) {
+            alert("sucessfully added to database !")
+        }
+        // const recivedData = await response.json();
+        // console.log(55555,recivedData)
     }
 
-    async function addToWishListHandler(e){
+
+
+    async function addToWishListHandler(e) {
         e.preventDefault();
-        let url=`${process.env.REACT_APP_GAMES_URL}/addWishList`
+        let url = `${process.env.REACT_APP_GAMES_URL}/addWishList`
         //  [title, genre, image, review, rating, release_date, game_URL]
-         console.log(url)
-        let data={
-            title:props.gameData.title, 
-            genre:props.gameData.genre, 
-            image:props.gameData.thumbnail, 
-            review:props.gameData.review, 
-            rating:props.gameData.rating, 
-            release_date:props.gameData.release_date,
-            game_URL:props.gameData.game_URL
+        console.log(url)
+        let data = {
+            title: props.gameData.title,
+            genre: props.gameData.genre,
+            image: props.gameData.thumbnail,
+            review: props.gameData.review,
+            rating: props.gameData.rating,
+            release_date: props.gameData.release_date,
+            game_URL: props.gameData.game_url
         }
-        console.log("data is",data)
-        const response = await fetch(url,{
-            method:"POST", 
+        console.log("data is", data)
+        const response = await fetch(url, {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
 
         })
-        console.log('response is',response)
+        console.log('response is', response)
 
         const recivedData = await response.json();
-        console.log(66666,recivedData)
-       
+        console.log(66666, recivedData)
+
 
     }
 
@@ -81,7 +86,7 @@ export default function ModelGame(props) {
                     >
                         <Row >
                             <Col>
-                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToWishListHandler(e)}>
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)}>
                                     Add to my library
                                 </Button>
                             </Col>
@@ -89,7 +94,7 @@ export default function ModelGame(props) {
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-2 p-2"
                                     type="submit"
-                                    style={{ float: "right" }} onClick={(e)=>addToLibraryHandler(e)}
+                                    style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
                                 >
                                     Add to my Wishlist
                                 </Button>
@@ -98,12 +103,8 @@ export default function ModelGame(props) {
                     </Form>
                 </Modal.Body>
                 <Modal.Footer >
-                    <Button onClick={props.handleClose}>
-                        Close
-                    </Button>
                 </Modal.Footer>
             </Modal>
-
         </>
     );
 }
