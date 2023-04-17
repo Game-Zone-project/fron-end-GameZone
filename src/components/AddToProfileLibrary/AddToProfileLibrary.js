@@ -22,7 +22,7 @@ export default function AddToProfileLibrary(){
         
         <section id="librarySec">
         <h1>My Library</h1>
-        <div class="divCont">
+        <div class="divContLibrary">
         {
             libraryGames && libraryGames.map(data=>{
                 return(
@@ -33,6 +33,7 @@ export default function AddToProfileLibrary(){
             })
         }
          </div>
+         <br></br>
         </section>
         </>
     );

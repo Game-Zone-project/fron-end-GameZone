@@ -1,7 +1,7 @@
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import axios from 'axios';
+// import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 import './ModelGame.css'

@@ -1,10 +1,10 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import './LibraryCard.css'
+import './WishListCard.css'
 
-export default function LibraryCard(props){
+export default function WishListCard(props){
     return(
-        <div class="libraryCard">
+        <div class="wishListCard">
         <Card  style={{ width: '22rem' }}>
             <Card.Img variant="top" src={props.data.image} />
               <Card.Body class="backGrountext">

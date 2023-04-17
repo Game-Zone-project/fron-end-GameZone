@@ -6,9 +6,11 @@ export default function GameList(props) {
 
     return (
         <>
+        <div class="slider">
+        <Slider />
+        </div>
             <section class="firstSec">
-                <Slider />
-                <p>Top played games</p>
+            <p>Top played games</p>
             </section>
             <section id="secondSec">
                 <h1>All Games</h1>
@@ -23,6 +25,7 @@ export default function GameList(props) {
                         })
                     }
                 </div>
+                <br></br>
             </section>
         </>
     );
