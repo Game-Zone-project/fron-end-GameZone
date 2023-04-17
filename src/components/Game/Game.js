@@ -29,5 +29,5 @@ export default function Game(props) {
         <ModelGame show={show} handleClose={handleClose} gameData={props.data} />
       </div>
     </>
-  )
+  );
 }
