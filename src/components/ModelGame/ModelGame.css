@@ -1,0 +1,93 @@
+/* Style for the Modal card */
+.modal {
+    position: fixed;
+
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+/* Style for the Modal Header */
+
+
+
+/* Style for the Modal Footer */
+
+
+.btn {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #4d5e70, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    color: #fcfcfc;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.modal-header {
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #718296, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /* fallback for old browsers */
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    position: relative;
+    padding: "0px" 
+    me
+}
+
+.modal-header .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.modal-title {
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    color: #dbe7df;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Add a subtle shadow */
+    /* Add a border */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+}
+
+.modal-footer {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #748497, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+  
