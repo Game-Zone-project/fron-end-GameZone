@@ -44,4 +44,6 @@ export default function ModelGame(props) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-
+        </>
+    );
+}
