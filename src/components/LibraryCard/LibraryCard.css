@@ -12,11 +12,10 @@
     cursor: pointer;
 }
 
-.divContLibrary{
+.divCont{
     display: flex;
     flex-wrap: wrap;
    justify-content: center;
-   flex-direction: row;
    gap: 20px;
    
 }
@@ -71,6 +70,3 @@ button:hover{
     margin: 10px 0 ; 
 } */
 
-.libraryCardContainer{
-    display: flex;
-}

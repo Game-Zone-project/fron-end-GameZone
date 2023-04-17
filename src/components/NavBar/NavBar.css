@@ -3,7 +3,7 @@ nav {
     align-items: center;
     gap: 25px;
     font-size: 20px;
-    margin-right: 5px;
+    /* margin-right: 5px; */
     justify-content: space-around;
     background-color: rgb(80, 21, 19);
     opacity: 0.9;
