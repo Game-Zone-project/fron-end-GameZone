@@ -1,3 +1,4 @@
+
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -43,6 +44,4 @@ export default function ModelGame(props) {
                     </Button>
                 </Modal.Footer>
             </Modal>
-        </>
-    );
-}
+
