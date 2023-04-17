@@ -16,13 +16,21 @@
 
 
 /* Style for the Modal Footer */
-
+.modal-description {
+ font-size: 26px;
+    line-height: 1.5;
+    background: repeating-linear-gradient(45deg, #797071, #5acaca 50%);
+    margin-bottom: 20px;
+   font-weight: bold;
+   
+   justify-content: left;
+   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
 
 .btn {
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #4d5e70, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: repeating-linear-gradient(45deg, #3f3033, #24eeee 50%);
+ 
     color: #fcfcfc;
     border: none;
     border-radius: 50px;
@@ -37,6 +45,39 @@
 
 
 
+.x {
+    font-size: 20px;
+    display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+    font-weight: bold;
+    margin: auto;
+    box-shadow: 0 2px 4px rgb(255, 255, 255);
+    background: #E6DADA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius: 5px;
+
+    color: #0f0f0f;
+    margin-bottom: 5px;
+}
+.y {
+font-size: 20px;
+    display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+    font-weight: bold;
+  margin-left: 0px;
+  border-radius: 5px;
+
+    color: #0f0f0f;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 4px rgb(102, 138, 238);
+   background: #E6DADA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 
 
 
@@ -45,16 +86,14 @@
 
 
 .modal-header {
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #718296, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        /* fallback for old browsers */
+    background: repeating-linear-gradient(45deg, #524748, #5acaca 80%);
+
     /* Chrome 10-25, Safari 5.1-6 */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     text-align: center;
     position: relative;
     padding: "0px" 
-    me
+    
 }
 
 .modal-header .modal-title {
