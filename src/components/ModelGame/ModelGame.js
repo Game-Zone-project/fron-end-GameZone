@@ -38,11 +38,11 @@ export default function ModelGame(props) {
                         </Row>
                     </Form>
                 </Modal.Body>
-                <Modal.Footer >
+                {/* <Modal.Footer >
                     <Button onClick={props.handleClose}>
                         Close
                     </Button>
-                </Modal.Footer>
+                </Modal.Footer> */}
             </Modal>
         </>
     );
