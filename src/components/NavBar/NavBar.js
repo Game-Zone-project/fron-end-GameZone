@@ -11,6 +11,7 @@ export default function NavBar() {
                 <Link to="/AddToProfileLibrary">My Library</Link>
                 <Link to="/AddToWishList">Wish List</Link>
                 <Link to="/AboutUs">About Us</Link>
+                <Link to="/AboutUs">Log-in</Link>
             </nav>
             
         </>

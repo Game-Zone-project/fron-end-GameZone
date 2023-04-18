@@ -6,14 +6,11 @@ export default function GameList(props) {
 
     return (
         <>
-        <div class="slider">
-        <Slider />
-        </div>
             <section class="firstSec">
-            <p>Top played games</p>
+            <Slider />
             </section>
             <section id="secondSec">
-                <h1>All Games</h1>
+
                 <div class="divCont">
                     {
                         props.data.map(element => {
