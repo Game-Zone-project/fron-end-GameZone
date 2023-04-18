@@ -6,7 +6,7 @@ export default function AddToWishList(){
     const [wishList, setwishList] = useState([])
 
     async function getwishList() {
-        let url = `${process.env.REACT_APP_GAMES_URL}/getAllWishList`;
+        let url =`${process.env.REACT_APP_GAMES_URL}/getAllWishList`;
         console.log(11111,url)
         let response = await fetch(url,{
             method:'Get',
@@ -22,17 +22,17 @@ export default function AddToWishList(){
 
     return(
         <>
-        
+
         <section id="wishListySec">
         <h1>Wish List</h1>
         <div class="divCont">
         {
             wishList && wishList.map(data=>{
                 return(
-                    <WishListCard  data={data} />
+                    <WishListCard  data={data} getwishList={getwishList} />
                 )
-            
-                
+
+
             })
         }
          </div>

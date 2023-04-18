@@ -26,7 +26,6 @@ export default function ModelGame(props) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
-
         })
         console.log("after")
         if (response.status === 201) {
@@ -41,20 +40,15 @@ export default function ModelGame(props) {
         e.preventDefault();
         let url = `${process.env.REACT_APP_GAMES_URL}/addWishList`
         //  [title, genre, image, review, rating, release_date, game_URL]
-         console.log(url)
-        let data={
-            title:props.gameData.title, 
-            genre:props.gameData.genre, 
-            image:props.gameData.thumbnail, 
-            release_date:props.gameData.release_date,
-            game_URL:props.gameData.game_url
-            // title:props.gameData.title, 
-            // genre:props.gameData.genre, 
-            // image:props.gameData.thumbnail, 
-            // review:props.gameData.review, 
-            // rating:props.gameData.rating, 
-            // release_date:props.gameData.release_date,
-            // game_URL:props.gameData.game_URL
+        console.log(url)
+        let data = {
+            title: props.gameData.title,
+            genre: props.gameData.genre,
+            image: props.gameData.thumbnail,
+            review: props.gameData.review,
+            rating: props.gameData.rating,
+            release_date: props.gameData.release_date,
+            game_URL: props.gameData.game_url
         }
         console.log("data is", data)
         const response = await fetch(url, {
@@ -125,7 +119,6 @@ export default function ModelGame(props) {
                 </Modal.Body>
               
             </Modal>
-
         </>
     );
 }
