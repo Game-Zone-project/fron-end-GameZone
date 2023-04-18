@@ -3,6 +3,7 @@ import Card from 'react-bootstrap/Card';
 import './WishListCard.css'
 
 export default function WishListCard(props){
+  
     return(
         <div class="wishListCard">
         <Card  style={{ width: '22rem' }}>
