@@ -7,17 +7,17 @@ import './ModelGame.css'
 
 export default function ModelGame(props) {
 
-     async function addToLibraryHandler(e){
+    async function addToLibraryHandler(e) {
         e.preventDefault();
         let url = `${process.env.REACT_APP_GAMES_URL}/addGame`
         //  [title, genre, image, review, rating, release_date, game_URL]
-         console.log(url)
-        let data={
-            title:props.gameData.title, 
-            genre:props.gameData.genre, 
-            image:props.gameData.thumbnail, 
-            release_date:props.gameData.release_date,
-            game_URL:props.gameData.game_url
+        console.log(url)
+        let data = {
+            title: props.gameData.title,
+            genre: props.gameData.genre,
+            image: props.gameData.thumbnail,
+            release_date: props.gameData.release_date,
+            game_URL: props.gameData.game_url
         }
         console.log("Game is", data)
         const response = await fetch(url, {
@@ -33,7 +33,7 @@ export default function ModelGame(props) {
         }
         // const recivedData = await response.json();
         // console.log(55555,recivedData)
-       
+
     }
 
     async function addToWishListHandler(e) {
@@ -45,10 +45,12 @@ export default function ModelGame(props) {
             title: props.gameData.title,
             genre: props.gameData.genre,
             image: props.gameData.thumbnail,
+
             review: props.gameData.review,
             rating: props.gameData.rating,
             release_date: props.gameData.release_date,
             game_URL: props.gameData.game_url
+
         }
         console.log("data is", data)
         const response = await fetch(url, {
@@ -88,7 +90,7 @@ export default function ModelGame(props) {
                     >
                         <Row >
                             <Col>
-                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToLibraryHandler(e)}>
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)}>
                                     Add to my library
                                 </Button>
                             </Col>
@@ -96,7 +98,7 @@ export default function ModelGame(props) {
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-2 p-2"
                                     type="submit"
-                                    style={{ float: "right" }} onClick={(e)=>addToWishListHandler(e)}
+                                    style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
                                 >
                                     Add to my Wishlist
                                 </Button>
@@ -109,15 +111,15 @@ export default function ModelGame(props) {
                     <div className="modal-description">{props.gameData.description}</div>
 
                     <div className="y">Release date : {props.gameData.release_date}</div>
-                      
+
 
                     <Button href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
-  Download
-</Button>
+                        Download
+                    </Button>
 
 
                 </Modal.Body>
-              
+
             </Modal>
         </>
     );
