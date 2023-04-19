@@ -24,16 +24,17 @@ export default function ModelLibraryCard(props) {
             .then(result => {
                 console.log("result is", result)
                 alert("successfuly Deleted !!");
-                props.getwishList();
-                console.log("data after deleting", props.getwishList());
+                
+                //console.log("data after deleting", props.getwishList());
             })
             .catch(err => {
                 console.log(err)
             })
+            props.getAllGame();
     }
 
     async function UpdateHandler(event,id){
-       
+       debugger
         event.preventDefault();
         console.log(id)
         let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
@@ -48,10 +49,9 @@ export default function ModelLibraryCard(props) {
             },
             body: JSON.stringify(data),
         })
-
-        props.getAllGame()
+        console.log("last")
         if (response.status === 200) {
-            props.getAllGame()
+            //props.getAllGame()
             alert("Comment Updated successfully !!")
         }
     }
@@ -75,12 +75,12 @@ export default function ModelLibraryCard(props) {
 
                     <img src={`${props.gameData.image}`} alt={props.gameData.title} className="card-img-top" />
                     {/* onSubmit={(event) => UpdateHandler(event, movie.id)}  */}
-                    <Form style={{
+                    <Form onSubmit={(event)=>UpdateHandler(event,props.gameData.id)} style={{
                         background: "linear-gradient(to bottom right, #3A6073, #16222A)",
                     }}
                     >
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control name="comment" as="textarea" rows={2} ref={reviewRef} />
+                            <Form.Control name="review" as="textarea" rows={2}  />
                         </Form.Group>
                         <Row >
                             <Col>
@@ -97,14 +97,14 @@ export default function ModelLibraryCard(props) {
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
                                     type="submit"
                                     style={{}}
-                                    onSubmit={(event)=>UpdateHandler(event,props.gameData.id)}>
+                                    >
                                     Update
                                 </Button>
                             </Col>
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
+                                    
                                     style={{}}
                                     onClick={() => deleteHandler(props.gameData.id)}>
                                     Delete
