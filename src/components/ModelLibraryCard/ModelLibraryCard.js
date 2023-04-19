@@ -30,7 +30,7 @@ export default function ModelLibraryCard(props) {
             .catch(err => {
                 console.log(err)
             })
-            props.getAllGame();
+            props.getAllGame()
     }
 
     async function UpdateHandler(event,id){
