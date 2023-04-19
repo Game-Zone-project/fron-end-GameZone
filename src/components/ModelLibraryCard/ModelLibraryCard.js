@@ -8,7 +8,18 @@ import { useRef } from 'react';
 export default function ModelLibraryCard(props) {
     // three functions  /Submit/Delete/Update
     const reviewRef = useRef();
-    
+
+    function submitHandler(e) {
+        e.preventDefault();
+        let userReview = reviewRef.current.value;
+        console.log("user Review is:", userReview);
+
+        let newReview = { ...props.gameData, userReview }
+        console.log(newReview);
+
+        props.revHandler(newReview, newReview.id)
+    }
+
 
     async function deleteHandler(id) {
         //debugger
@@ -24,16 +35,16 @@ export default function ModelLibraryCard(props) {
             .then(result => {
                 console.log("result is", result)
                 alert("successfuly Deleted !!");
-                props.getwishList();
-                console.log("data after deleting", props.getwishList());
+                props.getlibraryGames();
+
             })
             .catch(err => {
                 console.log(err)
             })
     }
 
-    async function UpdateHandler(event,id){
-       
+    async function UpdateHandler(event, id) {
+
         event.preventDefault();
         console.log(id)
         let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
@@ -49,14 +60,14 @@ export default function ModelLibraryCard(props) {
             body: JSON.stringify(data),
         })
 
-        props.getAllGame()
+        // props.getAllGame()
         if (response.status === 200) {
             props.getAllGame()
             alert("Comment Updated successfully !!")
         }
     }
 
-    
+
 
 
     return (
@@ -82,6 +93,9 @@ export default function ModelLibraryCard(props) {
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Control name="comment" as="textarea" rows={2} ref={reviewRef} />
                         </Form.Group>
+                        <Button variant="primary" type="submit" onClick={(e) => submitHandler(e)}>
+                            Submit
+                        </Button>
                         <Row >
                             <Col>
                                 {/* <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
@@ -95,16 +109,15 @@ export default function ModelLibraryCard(props) {
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
+
                                     style={{}}
-                                    onSubmit={(event)=>UpdateHandler(event,props.gameData.id)}>
+                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
                                     Update
                                 </Button>
                             </Col>
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
                                     style={{}}
                                     onClick={() => deleteHandler(props.gameData.id)}>
                                     Delete

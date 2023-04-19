@@ -21,7 +21,7 @@ export default function ModelWishList(props) {
             .then(result => {
                 // console.log("result is",result)
                 alert("successfuly Deleted !!");
-                
+                props.getwishList()
                 console.log("data after deleting");
                 // props.getwishList()
             })
@@ -29,7 +29,7 @@ export default function ModelWishList(props) {
                 console.log(err)
             })
 
-            props.getwishList();
+            // props.getwishList();
         }
         // props.getwishList();
         return (
