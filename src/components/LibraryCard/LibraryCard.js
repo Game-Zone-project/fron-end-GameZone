@@ -1,11 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import ModelLibraryCard from '../ModelLibraryCard/ModelLibraryCard';
-import { useState } from 'react';
-import './LibraryCard.css'
+import { useRef, useState } from 'react';
+import './LibraryCard.css';
+
 
 export default function LibraryCard(props){
-
+  const reviewRef = useRef();
    const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -28,7 +29,7 @@ export default function LibraryCard(props){
               </Card.Body>
         </Card>
        
-        <ModelLibraryCard show={show} handleClose={handleClose} gameData={props.data}/>
+        <ModelLibraryCard show={show} handleClose={handleClose} gameData={props.data} reviewHandler={props.reviewHandler} />
         </div>
 
         </>

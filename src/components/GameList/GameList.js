@@ -16,7 +16,7 @@ export default function GameList(props) {
                         props.data.map(element => {
                             return (
                                 <>
-                                    <Game data={element} />
+                                    <Game data={element} reviewHandler={props.reviewHandler} />
                                 </>
                             )
                         })
