@@ -116,7 +116,7 @@ export default function ModelGame(props) {
                         <Row >
                             <Col>
 
-                                <Button style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}} className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToLibraryHandler(e)}>
+                                {/* <Button style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}} className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToLibraryHandler(e)}> */}
 
                                 <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
                                     type="submit"
@@ -140,7 +140,7 @@ export default function ModelGame(props) {
 
                                     style={{ float: "right",background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)" }} onClick={(e)=>addToWishListHandler(e)}
 
-                                    style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
+                                    // style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
 
                                 >
                                     Add to my Wishlist
