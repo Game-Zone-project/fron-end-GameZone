@@ -95,19 +95,19 @@ export default function ModelGame(props) {
 
     return (
         <>
-            <Modal show={props.show} onHide={props.handleClose} >
-                <Modal.Header style={{ width: "500px" }} closeButton  >
-                    <Modal.Title>{props.gameData.title}
+            <Modal show={props.show} onHide={props.handleClose} style={{color:"rgb(104, 99, 99)"}} >
+                <Modal.Header style={{ width: "500px", background: "rgb(51, 46, 46)" , color:"rgb(104, 99, 99)" ,border: "rgb(22, 20, 20)"}} closeButton  >
+                    <Modal.Title style={{color:"rgb(104, 99, 99)"}}>{props.gameData.title}
 
                     </Modal.Title>
 
                 </Modal.Header  >
 
-                <Modal.Body className="card mx-auto" style={{ width: "500px", background: "linear-gradient(to bottom right, #3A6073, #16222A)", padding: "0px" }}  >
+                <Modal.Body className="card mx-auto" style={{ width: "500px", background: "rgb(22, 20, 20)", padding: "0px", border: "rgb(22, 20, 20)" }}  >
 
-                    <img src={`${props.gameData.thumbnail}`} alt={props.gameData.title} className="card-img-top" />
+                    <img class="card-img-top" src={`${props.gameData.thumbnail}`} alt={props.gameData.title}  />
                     <Form style={{
-                        background: "linear-gradient(to bottom right, #3A6073, #16222A)",
+                        background: "rgb(22, 20, 20)",border: "rgb(22, 20, 20)"
                     }}
                     >
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -115,6 +115,9 @@ export default function ModelGame(props) {
                         </Form.Group>
                         <Row >
                             <Col>
+
+                                <Button style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}} className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToLibraryHandler(e)}>
+
                                 <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
                                     type="submit"
                                     //  style={{ : "" }} 
@@ -126,6 +129,7 @@ export default function ModelGame(props) {
                             <Col>
                                 <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)} >
 
+
                                     Add to my library
                                 </Button>
                             </Col>
@@ -133,24 +137,36 @@ export default function ModelGame(props) {
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-2 p-2"
                                     type="submit"
+
+                                    style={{ float: "right",background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)" }} onClick={(e)=>addToWishListHandler(e)}
+
                                     style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
+
                                 >
                                     Add to my Wishlist
                                 </Button>
                             </Col>
                         </Row>
                     </Form>
-
-                    <div className="x">{props.gameData.genre}</div>
+                    <div class="contaner">
+                    {/* <div className="x">{props.gameData.genre}</div> */}
 
                     <div className="modal-description">{props.gameData.description}</div>
 
                     <div className="y">Release date : {props.gameData.release_date}</div>
 
+                    </div>
+
+                    <Button className="btn" style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}}  href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
+  Download
+</Button>
+
+
 
                     <Button href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
                         Download
                     </Button>
+
 
 
                 </Modal.Body>
