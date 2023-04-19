@@ -29,3 +29,9 @@ nav a:hover {
 nav h1 {
     color: rgb(236, 227, 227);
 }
+
+nav img{
+    /* width:65px; */
+    height: 68px;
+    border-radius: 40px;
+}

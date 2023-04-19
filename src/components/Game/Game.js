@@ -23,7 +23,7 @@ export default function Game(props) {
             <Card.Text>
             </Card.Text>
             <div class="homeButton">
-              <Button variant="dark" onClick={handleShow}>Show Details</Button>
+              <Button className='showButton' variant="dark" onClick={handleShow}>Show Details</Button>
             </div>
           </Card.Body>
         </Card>
