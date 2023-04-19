@@ -50,19 +50,19 @@ export default function WishListCard(props) {
     <>
       <div class="div1">
         <Card style={{ width: '22rem' }}>
-          <Card.Img variant="top" src={props.data.thumbnail} />
+          <Card.Img variant="top" src={props.data.image} alt={props.data.title}/>
           <Card.Body class="backGrountext">
             <Card.Title class="titleCard">{props.data.title}</Card.Title>
             <Card.Text>
             </Card.Text>
-            <div class="homeButton">
+            {/* <div class="homeButton"> */}
               <Button variant="dark" onClick={handleShow}>Show Details</Button>
-            </div>
+            {/* </div> */}
           </Card.Body>
         </Card>
-        <ModelWishList show={show} handleClose={handleClose} gameData={props.data} />
+       
       </div>
-
+      <ModelWishList show={show} handleClose={handleClose} gameData={props.data} getwishList={props.getwishList} />
     </>
   )
 }
