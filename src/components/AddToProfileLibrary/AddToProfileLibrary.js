@@ -38,7 +38,7 @@ export default function AddToProfileLibrary(){
         <>
         
         <section id="librarySec">
-        <h1>My Library</h1>
+            <div className='divHome'></div>
         <div class="divContLibrary">
         {
             libraryGames.map(data=>{
