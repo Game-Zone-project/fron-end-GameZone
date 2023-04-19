@@ -2,13 +2,15 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import {sweetAlert,swal} from 'react-bootstrap-sweetalert';
+
 
 
 export default function ModelLibraryCard(props) {
-    // three functions  /Submit/Delete/Update
+   
     const reviewRef = useRef();
-    
+    const [review,setreview]=useState("");
 
     async function deleteHandler(id) {
         //debugger
@@ -23,38 +25,72 @@ export default function ModelLibraryCard(props) {
 
             .then(result => {
                 console.log("result is", result)
-                alert("successfuly Deleted !!");
-                
+                //alert("successfuly Deleted !!");
+                sweetAlert("successfuly Deleted !!");
                 //console.log("data after deleting", props.getwishList());
             })
             .catch(err => {
                 console.log(err)
             })
-            props.getAllGame()
+            window.location.reload(false); //refresh the page 
     }
 
-    async function UpdateHandler(event,id){
-       debugger
+    // async function UpdateHandler(event,id){
+    //    //debugger
+    //     event.preventDefault();
+    //     console.log(id)
+    //     let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
+    //     let data = {
+    //         review: event.target.review.value
+    //     }
+    //     console.log(data);
+    //     let response = await fetch(url, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(data),
+    //     })
+    //     console.log("last")
+    //     props.getGames();
+    //     setreview(event.target.review.value)
+    //     if (response.status === 200) {
+    //         //props.getAllGame()
+    //         //alert("Comment Updated successfully !!")
+        
+    //         //   sweetAlert({title:"successfuly Deleted !!",
+    //         //   text: "Here's a custom image.",
+    //         //     imageUrl: "images/thumbs-up.jpg"
+    //         // });
+    //     }
+    // }
+    async function UpdateHandler(event, id) {
         event.preventDefault();
-        console.log(id)
+        console.log(id);
         let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
         let data = {
-            review: event.target.review.value
-        }
+          review: event.target.review.value,
+        };
         console.log(data);
         let response = await fetch(url, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        })
-        console.log("last")
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        console.log("last");
+       // props.getGames();
+        setreview(event.target.review.value); // to update the review instance 
         if (response.status === 200) {
-            //props.getAllGame()
-            alert("Comment Updated successfully !!")
+          // Update the review text on the user's screen
+          const reviewElement = document.getElementById(`review-${id}`);
+          if (reviewElement) {
+            reviewElement.innerText = event.target.review.value;
+          }
         }
-    }
+      }
+      
 
     
 
@@ -80,7 +116,7 @@ export default function ModelLibraryCard(props) {
                     }}
                     >
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control name="review" as="textarea" rows={2}  />
+                          < Form.Control name="review" as="textarea" rows={2}   />
                         </Form.Group>
                         <Row >
                             <Col>
@@ -116,10 +152,10 @@ export default function ModelLibraryCard(props) {
 
 
                     <div className="modal-description">{props.gameData.overview}</div>
-                    <div className="modal-description">{props.gameData.review}</div>
+                    {!review &&<div className="modal-description">{props.gameData.review}</div>}
+                                    {/* conditions to return the review !! */}
 
-
-
+                    {review &&<div className="modal-description">{review}</div>}
 
                     <Button href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
                         Download
