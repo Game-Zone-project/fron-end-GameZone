@@ -3,23 +3,41 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
-import './ModelGame.css'
+import './ModelGame.css';
+import AddToProfileLibrary from '../AddToProfileLibrary/AddToProfileLibrary';
+
+import { useRef } from 'react';
 
 export default function ModelGame(props) {
+    const reviewRef = useRef();
+
+    function submitHandler(event) {
+        event.preventDefault();
+        let userReview = reviewRef.current.value;
+        console.log("user review is : ", userReview);
+        let newData = { ...props.gameData, userReview };
+        console.log(newData);
+        props.reviewHandler(newData, newData.title)
+        console.log(props.reviewHandler);
+    }
+
 
     async function addToLibraryHandler(e) {
         e.preventDefault();
         let url = `${process.env.REACT_APP_GAMES_URL}/addGame`
         //  [title, genre, image, review, rating, release_date, game_URL]
-        console.log(url)
+        //console.log(url)
         let data = {
             title: props.gameData.title,
             genre: props.gameData.genre,
             image: props.gameData.thumbnail,
+            review: props.gameData.review,
+            rating: props.gameData.rating,
             release_date: props.gameData.release_date,
-            game_URL: props.gameData.game_url
+            game_URL: props.gameData.game_url,
+            overview:props.gameData.description
         }
-        console.log("Game is", data)
+        //console.log("Game is", data.review)
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -27,12 +45,14 @@ export default function ModelGame(props) {
             },
             body: JSON.stringify(data),
         })
-        console.log("after")
+
         if (response.status === 201) {
             alert("sucessfully added to database !")
         }
         // const recivedData = await response.json();
         // console.log(55555,recivedData)
+
+
 
     }
 
@@ -40,7 +60,7 @@ export default function ModelGame(props) {
         e.preventDefault();
         let url = `${process.env.REACT_APP_GAMES_URL}/addWishList`
         //  [title, genre, image, review, rating, release_date, game_URL]
-        console.log(url)
+        //console.log(url)
         let data = {
             title: props.gameData.title,
             genre: props.gameData.genre,
@@ -52,7 +72,7 @@ export default function ModelGame(props) {
             game_URL: props.gameData.game_url
 
         }
-        console.log("data is", data)
+        // console.log("data is", data)
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -61,14 +81,16 @@ export default function ModelGame(props) {
             body: JSON.stringify(data),
 
         })
-        console.log('response is', response)
-
+        //console.log('response is', response)
+        if (response.status === 201) {
+            alert("sucessfully added to database !")
+        }
         const recivedData = await response.json();
-        console.log(66666, recivedData)
+        //console.log(66666, recivedData)
 
 
     }
-    console.log(props.gameData.overview)
+    //console.log(props.gameData.reviewHandler)
 
 
     return (
@@ -88,9 +110,22 @@ export default function ModelGame(props) {
                         background: "linear-gradient(to bottom right, #3A6073, #16222A)",
                     }}
                     >
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Control name="comment" as="textarea" rows={2} ref={reviewRef} />
+                        </Form.Group>
                         <Row >
                             <Col>
-                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)}>
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
+                                    type="submit"
+                                    //  style={{ : "" }} 
+                                    onClick={(event) => submitHandler(event)}
+                                >
+                                    submit
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)} >
+
                                     Add to my library
                                 </Button>
                             </Col>
@@ -121,6 +156,7 @@ export default function ModelGame(props) {
                 </Modal.Body>
 
             </Modal>
+            {/* <AddToProfileLibrary reviewHandler={props.reviewHandler}/> */}
         </>
     );
 }

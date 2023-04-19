@@ -27,7 +27,7 @@ export default function Game(props) {
             </div>
           </Card.Body>
         </Card>
-        <ModelGame show={show} handleClose={handleClose} gameData={props.data} />
+        <ModelGame show={show} handleClose={handleClose} gameData={props.data} reviewHandler={props.reviewHandler} />
       </div>
     </>
 
