@@ -27,7 +27,7 @@ export default function AddToWishList(){
         <h1>Wish List</h1>
         <div class="divCont">
         {
-            wishList && wishList.map(data=>{
+             wishList.map(data=>{
                 return(
                     <WishListCard  data={data} getwishList={getwishList} />
                 )

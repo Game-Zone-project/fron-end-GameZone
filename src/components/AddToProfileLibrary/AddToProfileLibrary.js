@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './AddToProfileLibrary.css'
 import LibraryCard from '../LibraryCard/LibraryCard';
+import { useRef } from 'react';
+
 export default function AddToProfileLibrary(){
+
+    const reviewRef = useRef();
     const [libraryGames, setlibraryGames] = useState([])
 
     async function getlibraryGames() {
@@ -13,6 +17,8 @@ export default function AddToProfileLibrary(){
         setlibraryGames(recivedData);
     }
 
+
+
     useEffect(() => {
         getlibraryGames();
     }, []);
@@ -21,10 +27,10 @@ export default function AddToProfileLibrary(){
         <>
         
         <section id="librarySec">
-        <h1>My Library</h1>
+            <div className='divHome'></div>
         <div class="divContLibrary">
         {
-            libraryGames && libraryGames.map(data=>{
+            libraryGames.map(data=>{
                 return(
                     <LibraryCard  data={data} />
                 )

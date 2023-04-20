@@ -5,6 +5,8 @@ export default function Home(){
     const [games, setGames] = useState([]);
 
 
+
+
     async function getGames() {
         const url = process.env.REACT_APP_GAMES_URL
         //  console.log(1111, url);
@@ -16,6 +18,19 @@ export default function Home(){
         // console.log(4444, games);
     }
 
+    function reviewHandler(newData,title){
+        games.map(games=>{
+            if(games.title ===title){
+                console.log("test",newData,title)
+                 games.review = newData.userReview;
+                return games
+            }else{  
+            }return games;
+
+            
+        })
+    }
+
     useEffect(() => {
         getGames()
     }, []);
@@ -23,7 +38,7 @@ export default function Home(){
     return(
         <>
         {/* <h1>hello</h1> */}
-        <GameList data={games} />
+        <GameList data={games}  reviewHandler={reviewHandler}/>
         </>
 
     );

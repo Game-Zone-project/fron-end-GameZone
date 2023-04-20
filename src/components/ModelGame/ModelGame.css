@@ -1,7 +1,7 @@
 /* Style for the Modal card */
 .modal {
     position: fixed;
-
+    border-color:rgb(22, 20, 20) ;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -17,48 +17,54 @@
 
 /* Style for the Modal Footer */
 .modal-description {
- font-size: 26px;
-    line-height: 1.5;
-    background: repeating-linear-gradient(45deg, #797071, #5acaca 50%);
+    font-size: 18px;
+    /* line-height: 1.5; */
+    background: rgb(22, 20, 20);
     margin-bottom: 20px;
-   font-weight: bold;
-   
-   justify-content: left;
-   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   /* font-weight: bold; */
+    text-align: center;
+    padding-top: 45px ;
+   /* justify-content: left; */
+   /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 }
   
-
 .btn {
-    background: repeating-linear-gradient(45deg, #3f3033, #24eeee 50%);
+    /* background: repeating-linear-gradient(45deg, #3f3033, #24eeee 50%); */
  
-    color: #fcfcfc;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px;
+    /* color: #7a6969; */
+    /* border: none; */
+    /* border-radius: 50px; */
+    /* font-size: 1rem; */
+    /* font-weight: bold; */
+    /* padding: 20px; */
     margin: 10px;
-    box-shadow: 0 2px 4px rgb(255, 255, 255);
+    /* box-shadow: 0 2px 4px rgb(255, 255, 255); */
 
 }
+.btn:hover{
+    box-shadow: 0px 0px 10px 10px rgb(202, 43, 43);
+}
 
+.btn:hover{
+    box-shadow: 0px 0px 10px 10px rgb(202, 43, 43);
+}
 
 
 
 .x {
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
   flex-direction: column;
   margin-top: 10px;
     font-weight: bold;
     margin: auto;
-    box-shadow: 0 2px 4px rgb(255, 255, 255);
-    background: #E6DADA;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* box-shadow: 0 2px 4px rgb(255, 255, 255); */
+    background:rgb(22, 20, 20);  /* fallback for old browsers */
+background: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+background: rgb(22, 20, 20); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 border-radius: 5px;
 
-    color: #0f0f0f;
+    color: rgb(104, 99, 99);
     margin-bottom: 5px;
 }
 .y {
@@ -66,16 +72,16 @@ font-size: 20px;
     display: flex;
   flex-direction: column;
   margin-top: 10px;
-    font-weight: bold;
+    /* font-weight: bold; */
   margin-left: 0px;
   border-radius: 5px;
 
-    color: #0f0f0f;
+    color: rgb(104, 99, 99);
     margin-bottom: 5px;
-    box-shadow: 0 2px 4px rgb(102, 138, 238);
-   background: #E6DADA;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #274046, #E6DADA);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* box-shadow: 0 2px 4px rgb(102, 138, 238); */
+   background:rgb(22, 20, 20);  /* fallback for old browsers */
+background-color: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+background-color: rgb(22, 20, 20);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
@@ -86,7 +92,7 @@ background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, F
 
 
 .modal-header {
-    background: repeating-linear-gradient(45deg, #524748, #5acaca 80%);
+    background: rgb(22, 20, 20);
 
     /* Chrome 10-25, Safari 5.1-6 */
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -106,7 +112,7 @@ background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, F
     text-transform: uppercase;
     letter-spacing: 0.3rem;
     font-weight: bold;
-    color: #dbe7df;
+    /* color: #dbe7df; */
     text-align: center;
     left: 50%;
     transform: translateX(-50%);
@@ -123,10 +129,21 @@ background: linear-gradient(to right, #274046, #E6DADA); /* W3C, IE 10+/ Edge, F
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000000;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #0e2de0, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #748497, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background:rgb(22, 20, 20);  /* fallback for old browsers */
+    background: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+    background: rgb(22, 20, 20); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
 
+}
+
+.card-img-top{
+    border-radius: 0px;
+}
+.contaner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color:rgb(22, 20, 20);
+    color: rgb(104, 99, 99);
 }
   
