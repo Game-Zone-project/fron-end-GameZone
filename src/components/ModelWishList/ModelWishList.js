@@ -22,12 +22,26 @@ export default function ModelWishList(props) {
                 // console.log("result is",result)
                 alert("successfuly Deleted !!");
 
+                props.getwishList()
+
+
+
                 console.log("data after deleting");
                 // props.getwishList()
             })
             .catch(err => {
                 console.log(err)
             })
+
+
+            // props.getwishList();
+        }
+        // props.getwishList();
+        return (
+            <>
+                <Modal show={props.show} onHide={props.handleClose} >
+                    <Modal.Header style={{ width: "500px" }} closeButton  >
+                        <Modal.Title>{props.gameData.title}
 
         props.getwishList();
     }
@@ -37,6 +51,7 @@ export default function ModelWishList(props) {
             {isAuthenticated && (<Modal show={props.show} onHide={props.handleClose} >
                 <Modal.Header style={{ width: "500px" }} closeButton  >
                     <Modal.Title>{props.gameData.title}
+
 
                     </Modal.Title>
 

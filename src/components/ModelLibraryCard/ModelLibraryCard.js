@@ -11,7 +11,26 @@ import { useRef, useState } from 'react';
 export default function ModelLibraryCard(props) {
     const { isAuthenticated, logout } = useAuth0();
     const reviewRef = useRef();
+
+
+
+    function submitHandler(e) {
+        e.preventDefault();
+        let userReview = reviewRef.current.value;
+        console.log("user Review is:", userReview);
+
+        let newReview = { ...props.gameData, userReview }
+        console.log(newReview);
+
+        props.revHandler(newReview, newReview.id)
+    }
+
+
+    const [review,setreview]=useState("");
+
     const [review, setreview] = useState("");
+
+
 
     async function deleteHandler(id) {
         //debugger
@@ -26,15 +45,25 @@ export default function ModelLibraryCard(props) {
 
             .then(result => {
                 console.log("result is", result)
+
+                alert("successfuly Deleted !!");
+                props.getlibraryGames();
+
+
                 //alert("successfuly Deleted !!");
 
                 //console.log("data after deleting", props.getwishList());
+
             })
             .catch(err => {
                 console.log(err)
             })
         window.location.reload(false); //refresh the page 
     }
+
+
+    async function UpdateHandler(event, id) {
+
 
     // async function UpdateHandler(event,id){
     //    //debugger
@@ -66,6 +95,7 @@ export default function ModelLibraryCard(props) {
     //     }
     // }
     async function UpdateHandler(event, id) {
+
         event.preventDefault();
         console.log(id);
         let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
@@ -74,15 +104,29 @@ export default function ModelLibraryCard(props) {
         };
         console.log(data);
         let response = await fetch(url, {
+
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(data),
+
+        })
+
+        // props.getAllGame()
+
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+
+
         });
         console.log("last");
         // props.getGames();
         setreview(event.target.review.value); // to update the review instance 
+
         if (response.status === 200) {
             // Update the review text on the user's screen
             const reviewElement = document.getElementById(`review-${id}`);
@@ -91,6 +135,7 @@ export default function ModelLibraryCard(props) {
             }
         }
     }
+
 
 
 
@@ -119,6 +164,9 @@ export default function ModelLibraryCard(props) {
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             < Form.Control name="review" as="textarea" rows={2} />
                         </Form.Group>
+                        <Button variant="primary" type="submit" onClick={(e) => submitHandler(e)}>
+                            Submit
+                        </Button>
                         <Row >
                             <Col>
                                 {/* <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
@@ -132,15 +180,29 @@ export default function ModelLibraryCard(props) {
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
+
                                     style={{}}
+
+
+                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
+
+                                    >
+
+
                                 >
+
                                     Update
                                 </Button>
                             </Col>
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
+
+
+
+                                    
+
+
 
                                     style={{}}
                                     onClick={() => deleteHandler(props.gameData.id)}>

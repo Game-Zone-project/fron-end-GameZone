@@ -15,9 +15,20 @@ export default function AddToProfileLibrary(){
         });
         let recivedData = await response.json();
         setlibraryGames(recivedData);
+        console.log("data in library:",recivedData)
     }
-
-
+      
+    function reviewHandler(newReview,id){
+        libraryGames.map(game=>{
+          if(game.id ===id){
+             game.review=newReview.userReview;
+             return game;
+          }else{
+             return game;
+          }
+        })
+     }
+    
 
     useEffect(() => {
         getlibraryGames();
@@ -32,7 +43,7 @@ export default function AddToProfileLibrary(){
         {
             libraryGames.map(data=>{
                 return(
-                    <LibraryCard  data={data} />
+                    <LibraryCard  data={data} getlibraryGames={getlibraryGames} reviewHandler={reviewHandler}/>
                 )
             
                 
