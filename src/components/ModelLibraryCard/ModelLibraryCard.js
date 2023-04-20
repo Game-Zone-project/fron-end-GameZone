@@ -28,7 +28,7 @@ export default function ModelLibraryCard(props) {
 
     const [review,setreview]=useState("");
 
-    const [review, setreview] = useState("");
+   
 
 
 
@@ -57,22 +57,6 @@ export default function ModelLibraryCard(props) {
             .catch(err => {
                 console.log(err)
             })
-<<<<<<< HEAD
-           
-    }
-   
-    async function UpdateHandler(event, id) {
-
-        event.preventDefault();
-        console.log(id)
-
-        let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
-        let userReview = reviewRef.current.value;
-        // let data = {
-        //     review: event.target.review.value
-        // }
-        // console.log("updated data is",data);
-=======
         window.location.reload(false); //refresh the page 
     }
 
@@ -118,48 +102,28 @@ export default function ModelLibraryCard(props) {
             review: event.target.review.value,
         };
         console.log(data);
->>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
         let response = await fetch(url, {
 
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-<<<<<<< HEAD
-            body: JSON.stringify({review: userReview}),
-=======
             body: JSON.stringify(data),
 
->>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
         })
-          console.log("response is",response)
-          console.log("user review is",userReview)
-        // props.getAllGame()
 
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-
-
-        });
+        };
         console.log("last");
         // props.getGames();
         setreview(event.target.review.value); // to update the review instance 
 
-        if (response.status === 200) {
-<<<<<<< HEAD
-            props.getlibraryGames()
-            alert("Review Updated successfully !!")
-=======
-            // Update the review text on the user's screen
-            const reviewElement = document.getElementById(`review-${id}`);
-            if (reviewElement) {
-                reviewElement.innerText = event.target.review.value;
-            }
->>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
-        }
+        // if (response.status === 200) {
+        //     // Update the review text on the user's screen
+        //     const reviewElement = document.getElementById(`review-${id}`);
+        //     if (reviewElement) {
+        //         reviewElement.innerText = event.target.review.value;
+        //     }
+        // }
     }
 
 
@@ -208,19 +172,10 @@ export default function ModelLibraryCard(props) {
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
 
                                     style={{}}
-<<<<<<< HEAD
-                                    onClick={(event)=>UpdateHandler (event, props.gameData.id)}>
-=======
 
 
                                     onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
 
-                                    >
-
-
-                                >
-
->>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
                                     Update
                                 </Button>
                             </Col>
