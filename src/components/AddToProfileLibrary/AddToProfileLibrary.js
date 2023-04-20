@@ -1,13 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import './AddToProfileLibrary.css'
 import LibraryCard from '../LibraryCard/LibraryCard';
 import { useRef } from 'react';
-
 export default function AddToProfileLibrary(){
-
     const reviewRef = useRef();
     const [libraryGames, setlibraryGames] = useState([])
-
     async function getlibraryGames() {
         let url = `${process.env.REACT_APP_GAMES_URL}/getAllGame`;
         let response = await fetch(url,{
@@ -17,7 +15,7 @@ export default function AddToProfileLibrary(){
         setlibraryGames(recivedData);
         console.log("data in library:",recivedData)
     }
-      
+
     function reviewHandler(newReview,id){
         libraryGames.map(game=>{
           if(game.id ===id){
@@ -33,20 +31,16 @@ export default function AddToProfileLibrary(){
     useEffect(() => {
         getlibraryGames();
     }, []);
-
     return(
         <>
-        
         <section id="librarySec">
-            <div className='divHome'></div>
+        <h1>    </h1>
         <div class="divContLibrary">
         {
             libraryGames.map(data=>{
                 return(
                     <LibraryCard  data={data} getlibraryGames={getlibraryGames} reviewHandler={reviewHandler}/>
                 )
-            
-                
             })
         }
          </div>
@@ -55,4 +49,3 @@ export default function AddToProfileLibrary(){
         </>
     );
 }
-

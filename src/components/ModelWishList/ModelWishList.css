@@ -67,29 +67,6 @@ border-radius: 5px;
     color: rgb(104, 99, 99);
     margin-bottom: 5px;
 }
-.y {
-font-size: 20px;
-    display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-    /* font-weight: bold; */
-  margin-left: 0px;
-  border-radius: 5px;
-
-    color: rgb(104, 99, 99);
-    margin-bottom: 5px;
-    /* box-shadow: 0 2px 4px rgb(102, 138, 238); */
-   background:rgb(22, 20, 20);  /* fallback for old browsers */
-background-color: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
-background-color: rgb(22, 20, 20);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
-
-
-
-
-
-
 
 .modal-header {
     background: rgb(22, 20, 20);
@@ -153,21 +130,3 @@ background-color: rgb(22, 20, 20);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+,
     margin:0px;
     padding:0px;
 }
-
-.buttonCont{
-    display: flex;
-    /* flex-wrap: wrap; */
-    flex-direction: row;
-    /* justify-content: space-between; */
-    
-
- } 
-
- .miviCont{
-    display: flex;
-    /* flex-direction: column; */
-    /* justify-content: space-between; */
-    column-gap: 55px;
-    padding-bottom: 10px;
-    /* padding-right: 5px; */
- }
