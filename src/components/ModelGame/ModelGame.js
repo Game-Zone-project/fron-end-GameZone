@@ -80,14 +80,26 @@ export default function ModelGame(props) {
     //console.log(props.gameData.reviewHandler)
     return (
         <>
+
         {isAuthenticated && (
             <Modal show={props.show} onHide={props.handleClose} style={{ color: "rgb(104, 99, 99)" }} >
                 <Modal.Header style={{ width: "500px", background: "rgb(51, 46, 46)", color: "rgb(104, 99, 99)", border: "rgb(22, 20, 20)" }} closeButton  >
                     <Modal.Title style={{ color: "rgb(104, 99, 99)" }}>{props.gameData.title}
+
+            {isAuthenticated && (<Modal show={props.show} onHide={props.handleClose} style={{ color: "rgb(104, 99, 99)" }} >
+                <Modal.Header style={{ width: "500px", background: "rgb(51, 46, 46)", color: "rgb(104, 99, 99)", border: "rgb(22, 20, 20)" }} closeButton  >
+                    <Modal.Title style={{ color: "rgb(104, 99, 99)" }}>{props.gameData.title}
+
+
                     </Modal.Title>
                 </Modal.Header  >
                 <Modal.Body className="card mx-auto" style={{ width: "500px", background: "rgb(22, 20, 20)", padding: "0px", border: "rgb(22, 20, 20)" }}  >
+
                     <img class="card-img-top" src={`${props.gameData.thumbnail}`} alt={props.gameData.title} style={{ width: 499 }} />
+
+
+                    <img class="card-img-top" src={`${props.gameData.thumbnail}`} alt={props.gameData.title} />
+
                     <Form style={{
                         background: "rgb(22, 20, 20)", border: "rgb(22, 20, 20)"
                     }}
@@ -96,6 +108,7 @@ export default function ModelGame(props) {
                             <Form.Control class="mb-3" style={{ background: "rgb(52, 20, 20)", border: "rgb(22, 20, 20)", color: "rgb(255, 255, 255)" }} name="comment" as="textarea" placeholder="Write your review" rows={3} ref={reviewRef} />
                         </Form.Group>
                         <Row >
+
                             <div class="buttonCont">
                                 <Col>
                                     <Button style={{ background: "rgb(51, 46, 46)", border: "rgb(22, 20, 20)" }} class='submitButton'
@@ -122,17 +135,71 @@ export default function ModelGame(props) {
                                     </Col>
                                 </div>
                             </div>
+
+                            <Col>
+
+                                {/* <Button style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}} className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e)=>addToLibraryHandler(e)}> */}
+
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
+                                    type="submit"
+                                    //  style={{ : "" }} 
+                                    onClick={(event) => submitHandler(event)}
+                                >
+                                    submit
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" type="submit" onClick={(e) => addToLibraryHandler(e)} >
+
+
+                                    Add to my library
+                                </Button>
+                            </Col>
+                            <Col>
+                                <Button
+                                    className="btn btn-dark btn-hover btn-active mx-2 p-2"
+                                    type="submit"
+
+                                    style={{ float: "right", background: "rgb(51, 46, 46)", border: "rgb(22, 20, 20)" }} onClick={(e) => addToWishListHandler(e)}
+
+                                // style={{ float: "right" }} onClick={(e) => addToWishListHandler(e)}
+
+                                >
+                                    Add to my Wishlist
+                                </Button>
+                            </Col>
+
                         </Row>
                     </Form>
                     <div class="contaner">
                         {/* <div className="x">{props.gameData.genre}</div> */}
+
                         <div className="modal-description">{props.gameData.description}</div>
                         <div className="y">Release date : {props.gameData.release_date}</div>
                     </div>
                     <Button className="btn" style={{ background: "rgb(51, 46, 46)", border: "rgb(22, 20, 20)" }} href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
+
+
+                        <div className="modal-description">{props.gameData.description}</div>
+
+                        <div className="y">Release date : {props.gameData.release_date}</div>
+
+                    </div>
+
+                    <Button className="btn" style={{ background: "rgb(51, 46, 46)", border: "rgb(22, 20, 20)" }} href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
+                        Download
+                    </Button>
+
+
+
+                    <Button href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
+
                         Download
                     </Button>
                 </Modal.Body>
+
+
+
             </Modal>)}
             {/* <AddToProfileLibrary reviewHandler={props.reviewHandler}/> */}
         </>
