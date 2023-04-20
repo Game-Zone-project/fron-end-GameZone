@@ -17,7 +17,26 @@ export default function NavBar() {
                 <Link to="/AddToProfileLibrary">My Library</Link>
                 <Link to="/AddToWishList">Wish List</Link>
                 <Link to="/AboutUs">About Us</Link>
-                <Link to="/AboutUs">Log-in</Link>
+                {/* <Link to="/AboutUs">Log-in</Link> */}
+                <div className="navbar-user-info">
+                    {isAuthenticated ? (
+                        <>
+                            <span className="textlogin">{user.name}</span>
+                            <Button 
+                                variant="primary"
+                                onClick={logout}
+                                className="btndes"
+                            >
+                                Log out
+                            </Button>
+                        </>
+                    ) : (
+                        <Button variant="primary" onClick={loginWithRedirect}>
+                            Log in
+                        </Button>
+                    )}
+                </div>
+                
             </nav>
             
         </>

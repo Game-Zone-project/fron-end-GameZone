@@ -1,13 +1,18 @@
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { useAuth0 } from "@auth0/auth0-react";
 import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+
+
 
 
 export default function ModelLibraryCard(props) {
-    // three functions  /Submit/Delete/Update
+    const { isAuthenticated, logout } = useAuth0();
     const reviewRef = useRef();
+
+
 
     function submitHandler(e) {
         e.preventDefault();
@@ -19,6 +24,12 @@ export default function ModelLibraryCard(props) {
 
         props.revHandler(newReview, newReview.id)
     }
+
+
+    const [review,setreview]=useState("");
+
+    const [review, setreview] = useState("");
+
 
 
     async function deleteHandler(id) {
@@ -33,13 +44,20 @@ export default function ModelLibraryCard(props) {
         }) 
             .then(result => {
                 console.log("result is", result)
+
                 alert("successfuly Deleted !!");
                 props.getlibraryGames();
+
+
+                //alert("successfuly Deleted !!");
+
+                //console.log("data after deleting", props.getwishList());
 
             })
             .catch(err => {
                 console.log(err)
             })
+<<<<<<< HEAD
            
     }
    
@@ -54,21 +72,97 @@ export default function ModelLibraryCard(props) {
         //     review: event.target.review.value
         // }
         // console.log("updated data is",data);
+=======
+        window.location.reload(false); //refresh the page 
+    }
+
+
+    async function UpdateHandler(event, id) {
+
+
+    // async function UpdateHandler(event,id){
+    //    //debugger
+    //     event.preventDefault();
+    //     console.log(id)
+    //     let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
+    //     let data = {
+    //         review: event.target.review.value
+    //     }
+    //     console.log(data);
+    //     let response = await fetch(url, {
+    //         method: "PUT",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(data),
+    //     })
+    //     console.log("last")
+    //     props.getGames();
+    //     setreview(event.target.review.value)
+    //     if (response.status === 200) {
+    //         //props.getAllGame()
+    //         //alert("Comment Updated successfully !!")
+
+    //         //   sweetAlert({title:"successfuly Deleted !!",
+    //         //   text: "Here's a custom image.",
+    //         //     imageUrl: "images/thumbs-up.jpg"
+    //         // });
+    //     }
+    // }
+    async function UpdateHandler(event, id) {
+
+        event.preventDefault();
+        console.log(id);
+        let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
+        let data = {
+            review: event.target.review.value,
+        };
+        console.log(data);
+>>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
         let response = await fetch(url, {
+
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
+<<<<<<< HEAD
             body: JSON.stringify({review: userReview}),
+=======
+            body: JSON.stringify(data),
+
+>>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
         })
           console.log("response is",response)
           console.log("user review is",userReview)
         // props.getAllGame()
+
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+
+
+        });
+        console.log("last");
+        // props.getGames();
+        setreview(event.target.review.value); // to update the review instance 
+
         if (response.status === 200) {
+<<<<<<< HEAD
             props.getlibraryGames()
             alert("Review Updated successfully !!")
+=======
+            // Update the review text on the user's screen
+            const reviewElement = document.getElementById(`review-${id}`);
+            if (reviewElement) {
+                reviewElement.innerText = event.target.review.value;
+            }
+>>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
         }
     }
+
+
 
 
 
@@ -76,7 +170,7 @@ export default function ModelLibraryCard(props) {
     return (
 
         <>
-            <Modal show={props.show} onHide={props.handleClose}  >
+            {isAuthenticated && (<Modal show={props.show} onHide={props.handleClose}  >
 
                 <Modal.Header style={{ width: "500px" }} closeButton  >
                     <Modal.Title>{props.gameData.title}
@@ -89,12 +183,12 @@ export default function ModelLibraryCard(props) {
 
                     <img src={`${props.gameData.image}`} alt={props.gameData.title} className="card-img-top" />
                     {/* onSubmit={(event) => UpdateHandler(event, movie.id)}  */}
-                    <Form style={{
+                    <Form onSubmit={(event) => UpdateHandler(event, props.gameData.id)} style={{
                         background: "linear-gradient(to bottom right, #3A6073, #16222A)",
                     }}
                     >
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Control name="comment" as="textarea" rows={2} ref={reviewRef} />
+                            < Form.Control name="review" as="textarea" rows={2} />
                         </Form.Group>
                         <Button variant="primary" type="submit" onClick={(e) => submitHandler(e)}>
                             Submit
@@ -114,13 +208,32 @@ export default function ModelLibraryCard(props) {
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
 
                                     style={{}}
+<<<<<<< HEAD
                                     onClick={(event)=>UpdateHandler (event, props.gameData.id)}>
+=======
+
+
+                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
+
+                                    >
+
+
+                                >
+
+>>>>>>> 97b9f89ebafad10a3a0d37113c98ab6e817c631c
                                     Update
                                 </Button>
                             </Col>
                             <Col>
                                 <Button
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
+
+
+
+                                    
+
+
+
                                     style={{}}
                                     onClick={() => deleteHandler(props.gameData.id)}>
                                     Delete
@@ -132,10 +245,10 @@ export default function ModelLibraryCard(props) {
 
 
                     <div className="modal-description">{props.gameData.overview}</div>
-                    <div className="modal-description">{props.gameData.review}</div>
+                    {!review && <div className="modal-description">{props.gameData.review}</div>}
+                    {/* conditions to return the review !! */}
 
-
-
+                    {review && <div className="modal-description">{review}</div>}
 
                     <Button href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
                         Download
@@ -144,7 +257,7 @@ export default function ModelLibraryCard(props) {
 
                 </Modal.Body>
 
-            </Modal>
+            </Modal>)}
         </>
     )
 }

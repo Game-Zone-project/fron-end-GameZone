@@ -29,7 +29,11 @@ export default function LibraryCard(props){
               </Card.Body>
         </Card>
        
+
         <ModelLibraryCard show={show} handleClose={handleClose} gameData={props.data} reviewHandler={props.reviewHandler} getlibraryGames={props.getlibraryGames} revHandler={props.reviewHandler}/>
+
+        <ModelLibraryCard show={show} handleClose={handleClose} gameData={props.data} reviewHandler={props.reviewHandler}/>
+
         </div>
 
         </>

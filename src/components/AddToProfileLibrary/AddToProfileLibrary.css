@@ -75,3 +75,6 @@ button:hover{
 .libraryCardContainer{
     display: flex;
 }
+.divHome{
+    padding-top: 5%;
+}
