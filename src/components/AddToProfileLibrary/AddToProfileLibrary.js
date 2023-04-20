@@ -15,7 +15,7 @@ export default function AddToProfileLibrary(){
         });
         let recivedData = await response.json();
         setlibraryGames(recivedData);
-        console.log("data in library:",recivedData)
+        // console.log("data in library:",recivedData)
     }
       
     function reviewHandler(newReview,id){

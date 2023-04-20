@@ -51,9 +51,12 @@ export default function ModelWishList(props) {
                         >
                             <Row >
                                 <Col>
-                                    <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" onClick={()=>handleDelete(props.gameData.id)}>
-                                        Remove From Wish List
-                                    </Button>
+                                <a href="#">
+          <span className="glyphicon glyphicon-star"></span>
+        </a>
+                                    {/* <Button className="btn    btn-btn-dark btn-hover btn-active mx-2 p-2" onClick={()=>handleDelete(props.gameData.id)}> */}
+                                    {/* <i style={"font-size:24px"} className='fas'>&#xf005;</i> */}
+                                    {/* </Button> */}
                                 </Col>
                             </Row>
                         </Form>

@@ -30,8 +30,7 @@ export default function ModelLibraryCard(props) {
             headers: {
                 "Content-Type": "application/json",
             },
-        })
-
+        }) 
             .then(result => {
                 console.log("result is", result)
                 alert("successfuly Deleted !!");
@@ -41,29 +40,33 @@ export default function ModelLibraryCard(props) {
             .catch(err => {
                 console.log(err)
             })
+           
     }
-
+   
     async function UpdateHandler(event, id) {
 
         event.preventDefault();
         console.log(id)
+
         let url = `${process.env.REACT_APP_GAMES_URL}/updateGames/${id}`;
-        let data = {
-            review: event.target.review.value
-        }
-        console.log(data);
+        let userReview = reviewRef.current.value;
+        // let data = {
+        //     review: event.target.review.value
+        // }
+        // console.log("updated data is",data);
         let response = await fetch(url, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({review: userReview}),
         })
-
+          console.log("response is",response)
+          console.log("user review is",userReview)
         // props.getAllGame()
         if (response.status === 200) {
-            props.getAllGame()
-            alert("Comment Updated successfully !!")
+            props.getlibraryGames()
+            alert("Review Updated successfully !!")
         }
     }
 
@@ -111,7 +114,7 @@ export default function ModelLibraryCard(props) {
                                     className="btn btn-dark btn-hover btn-active mx-1 p-2"
 
                                     style={{}}
-                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
+                                    onClick={(event)=>UpdateHandler (event, props.gameData.id)}>
                                     Update
                                 </Button>
                             </Col>
