@@ -1,0 +1,133 @@
+.modal {
+    position: fixed;
+    border-color:rgb(22, 20, 20) ;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the Modal Header */
+/* Style for the Modal Footer */
+.modal-description {
+    font-size: 18px;
+    /* line-height: 1.5; */
+    background: rgb(22, 20, 20);
+    /* margin-bottom: 20px; */
+   /* font-weight: bold; */
+    text-align: center;
+    /* padding-top: 45px ; */
+   /* justify-content: left; */
+   /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
+  
+.btn:hover{
+    box-shadow: 0px 0px 10px 10px rgb(202, 43, 43);
+}
+
+.btn:hover{
+    box-shadow: 0px 0px 10px 10px rgb(202, 43, 43);
+}
+
+
+
+.x {
+    font-size: 18px;
+    display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+    font-weight: bold;
+    margin: auto;
+    /* box-shadow: 0 2px 4px rgb(255, 255, 255); */
+    background:rgb(22, 20, 20);  /* fallback for old browsers */
+background: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+background: rgb(22, 20, 20); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+border-radius: 5px;
+
+    color: rgb(104, 99, 99);
+    margin-bottom: 5px;
+}
+.y {
+font-size: 20px;
+    display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+    /* font-weight: bold; */
+  margin-left: 0px;
+  border-radius: 5px;
+
+    color: rgb(104, 99, 99);
+    margin-bottom: 5px;
+    /* box-shadow: 0 2px 4px rgb(102, 138, 238); */
+   background:rgb(22, 20, 20);  /* fallback for old browsers */
+background-color: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+background-color: rgb(22, 20, 20);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+
+
+
+
+
+.modal-header {
+    background: rgb(22, 20, 20);
+
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    position: relative;
+    padding: "0px" 
+    
+}
+
+.modal-header .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.modal-title {
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    font-weight: bold;
+    /* color: #dbe7df; */
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Add a subtle shadow */
+    /* Add a border */
+    font-size: 1.5rem;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+}
+
+.modal-footer {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgb(22, 20, 20);  /* fallback for old browsers */
+    background: rgb(22, 20, 20);  /* Chrome 10-25, Safari 5.1-6 */
+    background: rgb(22, 20, 20); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+
+.card-img-top{
+    border-radius: 0px;
+}
+.contaner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color:rgb(22, 20, 20);
+    color: rgb(104, 99, 99);
+}
+  
+
+.mb-3{
+    color: white;
+    margin:0px;
+    padding:0px;
+}

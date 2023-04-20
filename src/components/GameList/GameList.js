@@ -1,4 +1,5 @@
 import Game from "../Game/Game";
+
 import Slider from '../Slider/Slider';
 import './GameList.css';
 

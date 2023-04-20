@@ -9,37 +9,38 @@ const Footer = () => {
             <div className="sb__footer section__padding">
                 <div className="sb__footer-links">
                     <div className="sb__footer-links_div">
-                        <h4>For Business</h4>
+                        <h4>Genre</h4>
                         <a href="/employer">
-                            <p>Employer</p>
+                            <p>Shoter</p>
                         </a>
                         <a href="/healthplan">
-                            <p>Healthplan</p>
+                            <p>MMO</p>
                         </a>
                         <a href="/individual">
-                            <p>Individual</p>
+                            <p>RPG</p>
+                        </a>
+                        <a href="/individual">
+                            <p>Fighting</p>
                         </a>
                     </div>
                     <div className="sb__footer-links_div">
-                        <h4>Resources</h4>
+                        <h4>Partner-ship</h4>
                         <a href="/resource">
-                            <p>Resource Center</p>
+                            <p>Game-zon-shop</p>
                         </a>
                         <a href="/resource">
-                            <p>Testimonials</p>
+                            <p>Epic-Game</p>
                         </a>
-                        <a href="/resource">
-                            <p>STV</p>
-                        </a>
+                        
                     </div>
                     <div className="sb__footer-links_div">
                         <h4>Partners</h4>
                         <a href="/employer">
-                            <p>Swing Tech</p>
+                            <p>Steam.com</p>
                         </a>
                     </div>
                     <div className="sb__footer-links_div">
-                        <h4>Company</h4>
+                        <h4>Organization</h4>
                         <a href="/about">
                             <p>About</p>
                         </a>
