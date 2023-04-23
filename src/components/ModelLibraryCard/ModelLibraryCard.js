@@ -88,14 +88,6 @@ export default function ModelLibraryCard(props) {
           }
         }
       }
-
-
-
-
-
-
-
-
     return (
         <>
 
@@ -120,13 +112,7 @@ export default function ModelLibraryCard(props) {
                     
                         <Row >
                             <Col>
-                                {/* <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
-                                    //  style={{ : "" }}
-                                    // onClick={(event) => submitHandler(event)}
-                                >
-                                    submit
-                                </Button> */}
+
                             </Col>
                             <div class="miviCont">
                             <Col>
