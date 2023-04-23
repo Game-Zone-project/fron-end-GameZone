@@ -7,32 +7,10 @@ import Form from 'react-bootstrap/Form';
 import { Row, Col } from 'react-bootstrap';
 import { useRef, useState } from 'react';
 
-// export default function ModelLibraryCard(props) {
-//     const { isAuthenticated, logout } = useAuth0();
-//     const reviewRef = useRef();
-//     const [review, setreview] = useState("");
-//     /////////////
-
-
-
-
-
 export default function ModelLibraryCard(props) {
     const { isAuthenticated, logout } = useAuth0();
     const reviewRef = useRef();
-
-
-
-
-
-
- 
-
     const [review, setreview] = useState("");
-
-
-
-
     async function deleteHandler(id) {
         //debugger
         let url = `${process.env.REACT_APP_GAMES_URL}/DELETE/${id}`
@@ -54,14 +32,7 @@ export default function ModelLibraryCard(props) {
                 console.log(err)
             })
             window.location.reload(false); //refresh the page 
-      
     }
-
-       
-    
-
-
-    
     async function UpdateHandler(event, id) {
         event.preventDefault();
         console.log(id);
@@ -88,17 +59,8 @@ export default function ModelLibraryCard(props) {
           }
         }
       }
-
-
-
-
-
-
-
-
     return (
         <>
-
             {isAuthenticated && (<Modal show={props.show} onHide={props.handleClose} style={{color:"rgb(104, 99, 99)"}}  >
                 <Modal.Header style={{ width: "500px", background: "rgb(51, 46, 46)" , color:"rgb(104, 99, 99)" ,border: "rgb(22, 20, 20)"}} closeButton  >
                     <Modal.Title style={{color:"rgb(104, 99, 99)"}}>{props.gameData.title}
@@ -119,15 +81,6 @@ export default function ModelLibraryCard(props) {
                         </Form.Group>
                     
                         <Row >
-                            <Col>
-                                {/* <Button className="btn    btn-btn-dark btn-hover btn-active mx-1 p-2"
-                                    type="submit"
-                                    //  style={{ : "" }}
-                                    // onClick={(event) => submitHandler(event)}
-                                >
-                                    submit
-                                </Button> */}
-                            </Col>
                             <div class="miviCont">
                             <Col>
                                 <Button
@@ -135,16 +88,7 @@ export default function ModelLibraryCard(props) {
 
                                     type="submit"
                                     style={{padding:"0%",margin:"0%",width:"100%",background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}}
-                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}
-                            
-
-
-                                
-
-
-                                >
-
-
+                                    onSubmit={(event) => UpdateHandler(event, props.gameData.id)}>
                                     Update
                                 </Button>
                             </Col>
@@ -164,18 +108,14 @@ export default function ModelLibraryCard(props) {
                             </div>
                         </Row>
                     </Form>
-
                     <div className="modal-description" style={{padding:"0%",margin:"0%"}}>Your Review:</div>
                     {!review && <div className="modal-description" style={{padding:"0%",margin:"1%"}}>{props.gameData.review}</div>}
                     {/* conditions to return the review !! */}
                     {review && <div className="modal-description" style={{padding:"0%",margin:"2%"}}>{review}</div>}
                     <Button style={{background:"rgb(51, 46, 46)", border:"rgb(22, 20, 20)"}} href={props.gameData.game_url} size="lg" onClick={() => window.location.href = props.gameData.game_url}>
-
-
                         Download
                     </Button>
                 </Modal.Body>
-
             </Modal>)}
         </>
     )
