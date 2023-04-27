@@ -1,3 +1,4 @@
+
 import { useAuth0 } from "@auth0/auth0-react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -21,22 +22,25 @@ export default function NavBar() {
                 <div className="navbar-user-info">
                     {isAuthenticated ? (
                         <>
-                            <span className="textlogin">{user.name}</span>
+                            <span className="textlogin" 
+                             style={{  color: 'white', }}
+                            >{user.name}</span>
+
                             <Button 
-                                variant="primary"
+
                                 onClick={logout}
                                 className="btndes"
+                                style={{ backgroundColor: '#f8f9fa', borderColor: '#f8f9fa', color: '#212529', }}
                             >
                                 Log out
                             </Button>
                         </>
                     ) : (
-                        <Button variant="primary" onClick={loginWithRedirect}>
+                        <Button variant="primary" onClick={loginWithRedirect} style={{ backgroundColor: '#f8f9fa', borderColor: '#f8f9fa', color: '#212529' }}>
                             Log in
                         </Button>
                     )}
                 </div>
-                
             </nav>
             
         </>
@@ -83,4 +87,3 @@ export default function NavBar() {
 //         </Navbar>
 //     );
 // }
-
